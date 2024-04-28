@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Voting Machine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e5f3f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center; /* Center content */
+        }
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin-right: 20px;
+        }
+        .nav ul li:last-child {
+            margin-right: 0;
+        }
+        .nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav ul li a:hover {
+            color: #ccc;
+        }
+        .hero {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/002/777/369/large_2x/voting-and-election-concept-people-and-vote-word-cartoon-vector.jpg');
+            background-size: contain;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .about {
+            padding: 40px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        .features {
+            padding: 40px 0;
+        }
+        .features .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .feature {
+            flex-basis: calc(33.33% - 20px);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .feature i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+            color: #333;
+        }
+        .feature h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .feature p {
+            color: #666;
+        }
+        .party {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .party-button {
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .party-button:hover {
+            background-color: #0056b3;
+        }
+        .party-code {
+            font-size: 14px;
+            color: #555;
+        }
+        .votes {
+            font-size: 1rem;
+            color: #333;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #0074D9;
+            color: #fff;
+            margin-right: 20px;
+        }
+        #vote-count,
+        #winning-party {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <h1>Electronic Voting Machine</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+           
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about">
+        <div class="container">
+            <h2>ABOUT US</h2>
+            <p>Welcome to our Electronic Voting Machine (EVM) platform. We are committed to providing a reliable and efficient solution for conducting elections in a democratic and transparent manner.
+            Our EVM system ensures the integrity of the voting process while providing convenience and accessibility to voters. With advanced technology and robust security measures, we aim to facilitate fair and accurate elections.</p>
+    
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="container">
+            <div class="feature">
+                <div class="party">
+                    <button class="party-button" onclick="vote('Party A')"><i class="fas fa-vote-yea"></i>Party A</button>
+                    <p class="party-code">Code: A001</p>
+                    <p class="votes">Votes: <span id="party-a-votes">0</span></p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="party">
+                    <button class="party-button" onclick="vote('Party B')"><i class="fas fa-vote-yea"></i> Party B</button>
+                    <p class="party-code">Code: B002</p>
+                    <p class="votes">Votes: <span id="party-b-votes">0</span></p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="party">
+                    <button class="party-button" onclick="vote('Party C')"><i class="fas fa-vote-yea"></i> Party C</button>
+                    <p class="party-code">Code: C003</p>
+                    <p class="votes">Votes: <span id="party-c-votes">0</span></p>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="party">
+                    <button class="party-button" onclick="vote('Party D')"><i class="fas fa-vote-yea"></i> Party D</button>
+                    <p class="party-code">Code: D004</p>
+                    <p class="votes">Votes: <span id="party-d-votes">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div class="container">
+        <p class="result">Total Votes: <span id="vote-count">0</span></p>
+        <p class="result">Winning Party: <span id="winning-party">None</span></p>
+    </div>
+
+    <script>
+        let votes = {
+            'Party A': 0,
+            'Party B': 0,
+            'Party C': 0,
+            'Party D': 0
+        };
+
+        function vote(party) {
+            votes[party]++;
+            document.getElementById('party-a-votes').textContent = votes['Party A'];
+            document.getElementById('party-b-votes').textContent = votes['Party B'];
+            document.getElementById('party-c-votes').textContent = votes['Party C'];
+            document.getElementById('party-d-votes').textContent = votes['Party D'];
+            document.getElementById('vote-count').textContent = Object.values(votes).reduce((a, b) => a + b);
+            const winningParty = Object.keys(votes).reduce((a, b) => votes[a] > votes[b] ? a : b);
+            document.getElementById('winning-party').textContent = winningParty;
+        }
+    </script>
+</body>
+</html>
+
+
+
